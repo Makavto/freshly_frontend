@@ -1,24 +1,22 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import { getApiError } from '@shared/api/index.ts';
 import { userApi } from '@entities/user/index.ts';
-import type { UserStore } from '@entities/user/index.ts';
+import { userModel } from '@entities/user/index.ts';
 import { sessionApi, type AuthTokens } from '../api/sessionApi.ts';
 import { tokenStorage } from '../lib/tokenStorage.ts';
 
-export class AuthStore {
+class SessionModel {
   isBootstrapped = false;
 
   _bootstrapPromise: Promise<void> | null = null;
   _refreshPromise: Promise<string> | null = null;
-  readonly userStore: UserStore;
 
-  constructor(userStore: UserStore) {
-    this.userStore = userStore;
+  constructor() {
     makeAutoObservable(this);
   }
 
   get isAuthenticated(): boolean {
-    return this.userStore.user !== null;
+    return userModel.user !== null;
   }
 
   bootstrap(): Promise<void> {
@@ -54,17 +52,12 @@ export class AuthStore {
   }
 
   applySession(tokens: AuthTokens): void {
-    const previousRefresh = tokenStorage.getRefreshToken();
     tokenStorage.setTokens(tokens.accessToken, tokens.refreshToken);
-    this.userStore.setUser(tokens.user);
-    if (previousRefresh && previousRefresh !== tokens.refreshToken) {
-      void sessionApi.logout(previousRefresh).catch(() => undefined);
-    }
   }
 
   clearSession(): void {
     tokenStorage.clear();
-    this.userStore.clear();
+    userModel.clear();
   }
 
   private async runBootstrap(): Promise<void> {
@@ -81,7 +74,7 @@ export class AuthStore {
     try {
       const user = await userApi.me();
       runInAction(() => {
-        this.userStore.setUser(user);
+        userModel.setUser(user);
         this.isBootstrapped = true;
       });
     } catch (error) {
@@ -111,3 +104,5 @@ export class AuthStore {
     return tokens.accessToken;
   }
 }
+
+export const sessionModel = new SessionModel();

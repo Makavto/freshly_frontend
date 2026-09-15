@@ -1,10 +1,11 @@
 import { memo } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
-import { HomePage } from '@pages/homePage/index.ts';
-import { LoginPage } from '@pages/loginPage/index.ts';
-import { RegisterPage } from '@pages/registerPage/index.ts';
+import { HomePage } from '@pages/homePage';
+import { LoginPage } from '@pages/loginPage';
+import { RegisterPage } from '@pages/registerPage';
 import { RedirectIfRegistered } from './ui/RedirectIfRegistered.tsx';
 import { RequireAuth } from './ui/RequireAuth.tsx';
+import { BasicLayout } from '@shared/components/basicLayout';
 
 const Router = memo(function Router() {
   return (
@@ -14,7 +15,9 @@ const Router = memo(function Router() {
           path="/login"
           element={
             <RedirectIfRegistered>
-              <LoginPage />
+              <BasicLayout>
+                <LoginPage />
+              </BasicLayout>
             </RedirectIfRegistered>
           }
         />
@@ -22,7 +25,9 @@ const Router = memo(function Router() {
           path="/register"
           element={
             <RedirectIfRegistered>
-              <RegisterPage />
+              <BasicLayout>
+                <RegisterPage />
+              </BasicLayout>
             </RedirectIfRegistered>
           }
         />

@@ -1,6 +1,5 @@
 import type { User } from '@entities/user/index.ts';
 import { http } from '@shared/api/index.ts';
-import '../lib/httpConfig.ts';
 
 export type AuthTokens = {
   accessToken: string;

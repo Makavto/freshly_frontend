@@ -1,1 +1,1 @@
-export { RegisterFeature } from './ui/RegisterFeature.tsx';
+export { RegisterForm } from './ui/RegisterForm.tsx';

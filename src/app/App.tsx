@@ -1,16 +1,14 @@
 import { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import { useStore } from './providers/useStore.ts';
 import Router from './router/Router.tsx';
+import { sessionModel } from '@entities/session';
 
 const App = observer(function App() {
-  const { auth } = useStore();
-
   useEffect(() => {
-    void auth.bootstrap();
-  }, [auth]);
+    sessionModel.bootstrap();
+  }, []);
 
-  if (!auth.isBootstrapped) {
+  if (!sessionModel.isBootstrapped) {
     return null;
   }
 

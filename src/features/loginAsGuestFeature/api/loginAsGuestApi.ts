@@ -1,5 +1,5 @@
-import { http } from '@shared/api/index.ts';
-import type { AuthTokens } from '@entities/session/index.ts';
+import { http } from '@shared/api';
+import type { AuthTokens } from '@entities/session';
 
 export const loginAsGuestApi = {
   guest() {

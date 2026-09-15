@@ -1,15 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router';
-import { useAuthStore } from '@entities/session/index.ts';
-import { useUserStore } from '@entities/user/index.ts';
+import { userModel } from '@entities/user';
+import { sessionModel } from '@entities/session';
 
 export const HomePage = observer(function HomePage() {
-  const authStore = useAuthStore();
-  const userStore = useUserStore();
-  const user = userStore.user;
+  const user = userModel.user;
 
   const onLogout = () => {
-    void authStore.logout();
+    void sessionModel.logout();
   };
 
   return (
@@ -21,7 +19,7 @@ export const HomePage = observer(function HomePage() {
           {user.isGuest ? ' (гость)' : ''}
         </p>
       ) : null}
-      {userStore.isGuest ? (
+      {userModel.isGuest ? (
         <p>
           <Link to="/register">Создать аккаунт</Link>
         </p>

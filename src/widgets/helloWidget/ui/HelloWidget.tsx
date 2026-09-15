@@ -19,7 +19,9 @@ export const HelloWidget = memo(
           style={{ width: theme.spacing(10), aspectRatio: 1 }}
         />
         <Typography variant="h1">Freshly</Typography>
-        <Typography color="secondary">{slots.description}</Typography>
+        <Typography color="secondary" sx={{ textAlign: 'center' }}>
+          {slots.description}
+        </Typography>
       </Col>
     );
   },

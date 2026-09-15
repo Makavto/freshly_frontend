@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import type { User } from './types.ts';
 
-export class UserStore {
+class UserModel {
   user: User | null = null;
 
   constructor() {
@@ -24,3 +24,5 @@ export class UserStore {
     this.user = null;
   }
 }
+
+export const userModel = new UserModel();
