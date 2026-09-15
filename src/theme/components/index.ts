@@ -1,0 +1,71 @@
+import type { Components, Theme } from '@mui/material/styles';
+import { button, iconButton } from './button';
+import { cssBaseline } from './cssBaseline';
+import { avatar, circularProgress, container, link, listItemIcon } from './dataDisplay';
+import { alert, backdrop, dialog, dialogActions, dialogContent, dialogTitle, linearProgress, skeleton, snackbarContent, tooltip } from './feedback';
+import {
+  formHelperText,
+  inputLabel,
+  menu,
+  menuItem,
+  outlinedInput,
+  select,
+  textField,
+} from './input';
+import { card, cardActions, cardContent, cardHeader, paper } from './card';
+import { badge, chip } from './chip';
+import {
+  appBar,
+  bottomNavigation,
+  bottomNavigationAction,
+  divider,
+  drawer,
+  listItemButton,
+  tab,
+  tabs,
+  toolbar,
+} from './navigation';
+
+export const components: Components<Theme> = {
+  MuiCssBaseline: cssBaseline,
+  MuiButton: button,
+  MuiIconButton: iconButton,
+  MuiTextField: textField,
+  MuiOutlinedInput: outlinedInput,
+  MuiInputLabel: inputLabel,
+  MuiFormHelperText: formHelperText,
+  MuiSelect: select,
+  MuiMenuItem: menuItem,
+  MuiMenu: menu,
+  MuiPaper: paper,
+  MuiCard: card,
+  MuiCardContent: cardContent,
+  MuiCardHeader: cardHeader,
+  MuiCardActions: cardActions,
+  MuiChip: chip,
+  MuiBadge: badge,
+  MuiAppBar: appBar,
+  MuiToolbar: toolbar,
+  MuiBottomNavigation: bottomNavigation,
+  MuiBottomNavigationAction: bottomNavigationAction,
+  MuiDrawer: drawer,
+  MuiListItemButton: listItemButton,
+  MuiListItemIcon: listItemIcon,
+  MuiTabs: tabs,
+  MuiTab: tab,
+  MuiDivider: divider,
+  MuiDialog: dialog,
+  MuiDialogTitle: dialogTitle,
+  MuiDialogContent: dialogContent,
+  MuiDialogActions: dialogActions,
+  MuiBackdrop: backdrop,
+  MuiAlert: alert,
+  MuiSnackbarContent: snackbarContent,
+  MuiTooltip: tooltip,
+  MuiLinearProgress: linearProgress,
+  MuiSkeleton: skeleton,
+  MuiAvatar: avatar,
+  MuiCircularProgress: circularProgress,
+  MuiContainer: container,
+  MuiLink: link,
+};
