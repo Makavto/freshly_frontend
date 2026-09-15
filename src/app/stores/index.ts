@@ -1,2 +1,2 @@
-export { rootStore } from './rootStore';
-export type { RootStore } from './rootStore';
+export { rootStore } from './rootStore.ts';
+export type { RootStore } from './rootStore.ts';

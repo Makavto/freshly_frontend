@@ -1,8 +1,22 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
+const srcDir = fileURLToPath(new URL('./src', import.meta.url));
+
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@app': path.join(srcDir, 'app'),
+      '@pages': path.join(srcDir, 'pages'),
+      '@features': path.join(srcDir, 'features'),
+      '@entities': path.join(srcDir, 'entities'),
+      '@shared': path.join(srcDir, 'shared'),
+      '@widgets': path.join(srcDir, 'widgets'),
+    },
+  },
   plugins: [
     react(),
     VitePWA({
