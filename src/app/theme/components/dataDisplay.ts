@@ -27,6 +27,6 @@ export const container: Components<Theme>['MuiContainer'] = {
 export const link: Components<Theme>['MuiLink'] = {
   defaultProps: { underline: 'hover' },
   styleOverrides: {
-    root: ({ theme }) => ({ color: theme.palette.success.dark, fontWeight: 500 }),
+    root: ({ theme }) => ({ color: theme.palette.success.dark, fontWeight: 500, cursor: 'pointer' }),
   },
 };

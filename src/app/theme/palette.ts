@@ -19,7 +19,7 @@ export const primitives = {
   },
   neutral: {
     0: '#FFFFFF',
-    25: '#FBFAF8',
+    25: '#FBFBF8',
     50: '#F6F5F2',
     100: '#EFEDE8',
     200: '#E2DFD8',
@@ -124,7 +124,7 @@ export const palette: PaletteOptions = {
   },
   divider: primitives.neutral[200],
   background: {
-    default: primitives.neutral[50],
+    default: primitives.neutral[25],
     paper: primitives.neutral[0],
   },
   action: {
