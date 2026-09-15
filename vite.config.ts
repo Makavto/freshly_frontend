@@ -7,12 +7,22 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
+      includeAssets: [
+        'favicon.ico',
+        'favicon-16x16.png',
+        'favicon-32x32.png',
+        'apple-touch-icon.png',
+      ],
+      workbox: {
+        // добавляем woff2 — шрифты Inter из node_modules собираются в dist/assets.
+        // .woff не кэшируем: это фолбэк для браузеров без поддержки woff2, которых в PWA не бывает
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+      },
       manifest: {
         name: 'Freshly',
         short_name: 'Freshly',
-        theme_color: '#2e7d32',
-        background_color: '#ffffff',
+        theme_color: '#4CA85B',
+        background_color: '#F6F5F2',
         display: 'standalone',
         start_url: '/',
         icons: [
@@ -25,6 +35,13 @@ export default defineConfig({
             src: 'pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'maskable-icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
           },
         ],
       },
