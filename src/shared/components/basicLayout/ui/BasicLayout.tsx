@@ -5,11 +5,14 @@ const BasicLayout = memo(({ children }: { children: React.ReactNode }) => {
   return (
     <Box
       sx={{
-        py: 4,
-        px: 2,
+        my: 4,
+        mx: 2,
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
-      {children}
+      <Box sx={{ width: '100%' }}>{children}</Box>
     </Box>
   );
 });

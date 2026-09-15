@@ -13,12 +13,14 @@ export const HelloWidget = memo(
           gap: 1,
         }}
       >
-        <img
-          src="/logo.png"
-          alt="logo"
-          style={{ width: theme.spacing(10), aspectRatio: 1 }}
-        />
-        <Typography variant="h1">Freshly</Typography>
+        <Col sx={{ alignItems: 'center' }}>
+          <img
+            src="/logo.png"
+            alt="logo"
+            style={{ width: theme.spacing(25), aspectRatio: 1 }}
+          />
+          <Typography variant="h1">Freshly</Typography>
+        </Col>
         <Typography color="secondary" sx={{ textAlign: 'center' }}>
           {slots.description}
         </Typography>
