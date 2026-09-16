@@ -1,6 +1,41 @@
 import type { Components, Theme } from '@mui/material/styles';
 
+const outlinedFieldRoot = (theme: Theme, notchedOutlineClass: string) => ({
+  borderRadius: theme.radius.sm,
+  backgroundColor: theme.palette.background.paper,
+  [`& .${notchedOutlineClass}`]: {
+    borderColor: theme.palette.grey[200],
+  },
+  [`&:hover .${notchedOutlineClass}`]: {
+    borderColor: theme.palette.grey[300],
+  },
+  [`&.Mui-focused .${notchedOutlineClass}`]: {
+    borderColor: theme.palette.primary.main,
+    borderWidth: 1.5,
+  },
+  [`&.Mui-error .${notchedOutlineClass}`]: {
+    borderColor: theme.palette.error.main,
+  },
+  '&.Mui-disabled': {
+    backgroundColor: theme.palette.grey[50],
+  },
+});
+
+const outlinedFieldInput = (theme: Theme) => ({
+  '&::placeholder': {
+    color: theme.palette.text.disabled,
+    opacity: 0.8,
+  },
+});
+
 export const textField: Components<Theme>['MuiTextField'] = {
+  defaultProps: {
+    variant: 'outlined',
+    size: 'medium',
+  },
+};
+
+export const pickersTextField: Components<Theme>['MuiPickersTextField'] = {
   defaultProps: {
     variant: 'outlined',
     size: 'medium',
@@ -9,32 +44,16 @@ export const textField: Components<Theme>['MuiTextField'] = {
 
 export const outlinedInput: Components<Theme>['MuiOutlinedInput'] = {
   styleOverrides: {
-    root: ({ theme }) => ({
-      borderRadius: theme.radius.sm,
-      backgroundColor: theme.palette.background.paper,
-      '& .MuiOutlinedInput-notchedOutline': {
-        borderColor: theme.palette.grey[200],
-      },
-      '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: theme.palette.grey[300],
-      },
-      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-        borderColor: theme.palette.primary.main,
-        borderWidth: 1.5,
-      },
-      '&.Mui-error .MuiOutlinedInput-notchedOutline': {
-        borderColor: theme.palette.error.main,
-      },
-      '&.Mui-disabled': {
-        backgroundColor: theme.palette.grey[50],
-      },
-    }),
-    input: ({ theme }) => ({
-      '&::placeholder': {
-        color: theme.palette.text.disabled,
-        opacity: 0.8,
-      },
-    }),
+    root: ({ theme }) => outlinedFieldRoot(theme, 'MuiOutlinedInput-notchedOutline'),
+    input: ({ theme }) => outlinedFieldInput(theme),
+  },
+};
+
+export const pickersOutlinedInput: Components<Theme>['MuiPickersOutlinedInput'] = {
+  styleOverrides: {
+    root: ({ theme }) =>
+      outlinedFieldRoot(theme, 'MuiPickersOutlinedInput-notchedOutline'),
+    input: ({ theme }) => outlinedFieldInput(theme),
   },
 };
 

@@ -9,6 +9,8 @@ import {
   menu,
   menuItem,
   outlinedInput,
+  pickersOutlinedInput,
+  pickersTextField,
   select,
   textField,
 } from './input';
@@ -31,7 +33,9 @@ export const components: Components<Theme> = {
   MuiButton: button,
   MuiIconButton: iconButton,
   MuiTextField: textField,
+  MuiPickersTextField: pickersTextField,
   MuiOutlinedInput: outlinedInput,
+  MuiPickersOutlinedInput: pickersOutlinedInput,
   MuiInputLabel: inputLabel,
   MuiFormHelperText: formHelperText,
   MuiSelect: select,
