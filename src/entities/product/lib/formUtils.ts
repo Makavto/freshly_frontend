@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
-import type { ShelfLifeState, ShelfLifeChange } from '../ui/form/types';
+import type { ShelfLifeState, ShelfLifeChange, IProductForm } from '../ui/form/types';
+import type { ICreateProductDto } from '../model/dtos';
 
 const startOfDay = (date: Date) => dayjs(date).startOf('day');
 
@@ -67,4 +68,14 @@ export function applyShelfLifeChange(
       return next;
     }
   }
+}
+
+export function formToDto(form: IProductForm): ICreateProductDto {
+  return {
+    name: form.name,
+    // Поля в форме валидируются required, поэтому ! здесь безопасно
+    producedAt: form.producedAt!,
+    expiresAt: form.expiresAt!,
+    unit: form.unit,
+  };
 }

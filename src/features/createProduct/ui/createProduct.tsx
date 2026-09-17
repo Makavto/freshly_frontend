@@ -26,9 +26,15 @@ const CreateProduct = observer(function CreateProduct() {
 
   const handleCreateProduct = useCallback(() => {
     form.handleSubmit((data) => {
-      vm.createProduct(data);
+      vm.createProduct(data)
+        .then(() => {
+          navigate('/products');
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     })();
-  }, [vm, form]);
+  }, [vm, form, navigate]);
 
   const handleCancel = useCallback(() => {
     navigate('/products');

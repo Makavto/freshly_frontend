@@ -10,11 +10,9 @@ import { memo, useCallback } from 'react';
 import {
   applyShelfLifeChange,
   isValidShelfLifeDays,
-} from '../../lib/shelfLife';
-import {
   ProductUnitsEnum,
   ProductUnitsRusEnum,
-} from '../../model/types';
+} from '@entities/product';
 
 const PRODUCED_AT_PRESETS = [
   { label: 'Сегодня', daysAgo: 0 },
