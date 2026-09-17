@@ -39,7 +39,7 @@ export const typography: TypographyVariantsOptions = {
   },
   button: {
     fontSize: 14,
-    lineHeight: 20 / 14,
+    lineHeight: 1.2,
     fontWeight: 600,
     textTransform: 'none',
   },

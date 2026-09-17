@@ -15,8 +15,9 @@ export class CreateProductVM {
   async createProduct(data: IProductForm) {
     this._isPending = true;
     try {
-      const product = await productApi.createProduct(data);
-      return product;
+      console.log(data);
+      // const product = await productApi.createProduct(data);
+      // return product;
     } catch (error) {
       console.error(error);
     } finally {
@@ -27,7 +28,9 @@ export class CreateProductVM {
   get initialFormValues(): IProductForm {
     return {
       name: '',
-      expiresAt: new Date(),
+      expiresAt: null,
+      producedAt: null,
+      shelfLifeDays: null,
       unit: ProductUnitsEnum.PIECE,
     };
   }

@@ -21,20 +21,13 @@ export const button: Components<Theme>['MuiButton'] = {
     }),
     sizeSmall: ({ theme }) => ({
       paddingInline: theme.spacing(1.5),
-      paddingBlock: theme.spacing(0.75),
+      paddingBlock: theme.spacing(1),
       fontSize: 13,
     }),
     sizeLarge: ({ theme }) => ({
       paddingInline: theme.spacing(3),
       paddingBlock: theme.spacing(1.5),
-      fontSize: 15,
-    }),
-    outlined: ({ theme }) => ({
-      borderColor: theme.palette.divider,
-      '&:hover': {
-        borderColor: theme.palette.primary.main,
-        backgroundColor: alpha(theme.palette.primary.main, 0.06),
-      },
+      fontSize: 17,
     }),
     text: ({ theme }) => ({
       '&:hover': {
@@ -61,13 +54,4 @@ export const button: Components<Theme>['MuiButton'] = {
       }),
     },
   ],
-};
-
-export const iconButton: Components<Theme>['MuiIconButton'] = {
-  styleOverrides: {
-    root: ({ theme }) => ({
-      color: theme.palette.text.secondary,
-      '&:hover': { backgroundColor: alpha(theme.palette.primary.main, 0.08) },
-    }),
-  },
 };

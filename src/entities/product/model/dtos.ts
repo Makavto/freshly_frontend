@@ -2,6 +2,7 @@ import type { ProductUnitsEnum } from './types';
 
 export interface ICreateProductDto {
   name: string;
+  producedAt: Date;
   expiresAt: Date;
   quantity?: number;
   unit?: ProductUnitsEnum;

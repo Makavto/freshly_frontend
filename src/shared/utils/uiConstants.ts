@@ -1,1 +1,1 @@
-export const BOTTOM_MENU_HEIGHT = 64
+export const BOTTOM_MENU_HEIGHT = 64;

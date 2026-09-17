@@ -1,5 +1,5 @@
 import type { Components, Theme } from '@mui/material/styles';
-import { button, iconButton } from './button';
+import { button } from './button';
 import { cssBaseline } from './cssBaseline';
 import { avatar, circularProgress, container, link, listItemIcon } from './dataDisplay';
 import { alert, backdrop, dialog, dialogActions, dialogContent, dialogTitle, linearProgress, skeleton, snackbarContent, tooltip } from './feedback';
@@ -31,7 +31,6 @@ import {
 export const components: Components<Theme> = {
   MuiCssBaseline: cssBaseline,
   MuiButton: button,
-  MuiIconButton: iconButton,
   MuiTextField: textField,
   MuiPickersTextField: pickersTextField,
   MuiOutlinedInput: outlinedInput,
