@@ -118,8 +118,8 @@ export const palette: PaletteOptions = {
     A700: primitives.neutral[700],
   },
   text: {
-    primary: primitives.neutral[900],
-    secondary: primitives.neutral[600],
+    primary: primitives.neutral[700],
+    secondary: primitives.neutral[500],
     disabled: primitives.neutral[400],
   },
   divider: primitives.neutral[200],

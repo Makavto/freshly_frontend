@@ -1,5 +1,6 @@
 import type { Components, Theme } from '@mui/material/styles';
 import { alpha } from '@mui/material/styles';
+import { BOTTOM_MENU_HEIGHT } from '@shared/utils';
 
 export const appBar: Components<Theme>['MuiAppBar'] = {
   defaultProps: { elevation: 0, color: 'inherit' },
@@ -22,27 +23,29 @@ export const toolbar: Components<Theme>['MuiToolbar'] = {
 export const bottomNavigation: Components<Theme>['MuiBottomNavigation'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      height: 64,
+      height: BOTTOM_MENU_HEIGHT,
       backgroundColor: theme.palette.background.paper,
       borderTop: `1px solid ${theme.palette.grey[100]}`,
+      boxShadow: theme.shadows[8],
     }),
   },
 };
 
-export const bottomNavigationAction: Components<Theme>['MuiBottomNavigationAction'] = {
-  styleOverrides: {
-    root: ({ theme }) => ({
-      color: theme.palette.text.secondary,
-      minWidth: 'auto',
-      paddingTop: theme.spacing(0.75),
-      '&.Mui-selected': { color: theme.palette.primary.main },
-    }),
-    label: {
-      fontSize: 14,
-      '&.Mui-selected': { fontSize: 14, fontWeight: 600 },
+export const bottomNavigationAction: Components<Theme>['MuiBottomNavigationAction'] =
+  {
+    styleOverrides: {
+      root: ({ theme }) => ({
+        color: theme.palette.text.secondary,
+        '&.Mui-selected': {
+          color: theme.palette.primary.main,
+        },
+      }),
+      label: {
+        fontSize: 14,
+        '&.Mui-selected': { fontSize: 14 },
+      },
     },
-  },
-};
+  };
 
 /** Боковая навигация — десктопная адаптация вместо нижнего меню. */
 export const drawer: Components<Theme>['MuiDrawer'] = {

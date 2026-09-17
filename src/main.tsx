@@ -3,9 +3,16 @@ import { ThemeProvider } from '@mui/material/styles';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from '@app/App.tsx';
-import { sessionModel, setupAuthInterceptors } from '@entities/session/index.ts';
+import {
+  sessionModel,
+  setupAuthInterceptors,
+} from '@entities/session/index.ts';
 import { theme } from './app/theme';
 import './app/theme/fonts';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import 'dayjs/locale/ru';
+import { ruRU } from '@mui/x-date-pickers/locales';
 
 setupAuthInterceptors({
   refresh: () => sessionModel.refresh(),
@@ -17,8 +24,14 @@ setupAuthInterceptors({
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
+      <LocalizationProvider
+        dateAdapter={AdapterDayjs}
+        adapterLocale="ru"
+        localeText={ruRU.components.MuiLocalizationProvider.defaultProps.localeText}
+      >
+        <CssBaseline />
+        <App />
+      </LocalizationProvider>
     </ThemeProvider>
   </StrictMode>,
 );

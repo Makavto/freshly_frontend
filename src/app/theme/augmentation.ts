@@ -1,3 +1,4 @@
+import type {} from '@mui/x-date-pickers/themeAugmentation';
 import type { radius } from './shape';
 import type { customShadows } from './shadows';
 
